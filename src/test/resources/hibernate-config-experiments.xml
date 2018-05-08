@@ -25,7 +25,7 @@
         <property name="current_session_context_class">thread</property>
         
         <!--  List of persistent classes -->
-        <mapping class="es.jvcorp.iTarea.task.Task" />
+        <mapping class="es.jvcorp.iTarea.model.task.Task" />
         
     </session-factory>
 </hibernate-configuration>

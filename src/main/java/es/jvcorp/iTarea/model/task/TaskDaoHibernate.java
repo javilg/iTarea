@@ -1,4 +1,4 @@
-package es.jvcorp.iTarea.task;
+package es.jvcorp.iTarea.model.task;
 
 import org.springframework.stereotype.Repository;
 

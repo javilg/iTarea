@@ -1,4 +1,4 @@
-package es.jvcorp.iTarea.task;
+package es.jvcorp.iTarea.model.task;
 
 import es.jvcorp.iTarea.model.util.dao.GenericDao;
 

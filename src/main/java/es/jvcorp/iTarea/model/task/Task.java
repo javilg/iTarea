@@ -1,4 +1,4 @@
-package es.jvcorp.iTarea.task;
+package es.jvcorp.iTarea.model.task;
 
 import java.util.Calendar;
 import javax.persistence.Entity;
@@ -29,6 +29,7 @@ public class Task {
 		 */
 		this.taskDescription = taskDescription;
 		this.startDate = startDate;
+		this.finishDate = null;
 	}
 
 	@SequenceGenerator(             // It only takes effect for

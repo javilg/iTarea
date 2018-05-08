@@ -12,7 +12,7 @@
         <property name="hibernate.use_sql_comments">${hibernate.use_sql_comments}</property>  -->
 
         <!--  List of persistent classes -->
-        <mapping class="es.jvcorp.iTarea.task.Task" />
+        <mapping class="es.jvcorp.iTarea.model.task.Task" />
         
     </session-factory>
 </hibernate-configuration>
