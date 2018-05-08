@@ -21,6 +21,8 @@ import es.jvcorp.iTarea.model.util.exceptions.InstanceNotFoundException;
 @Transactional
 public class TaskServiceTest {	
 	
+	private final long NON_EXISTENT_TASK_ID = -1;
+	
 	@Autowired
 	private TaskService taskService;
 	
@@ -39,5 +41,30 @@ public class TaskServiceTest {
 
 		/* Check data. */
 		assertEquals(task, taskFound);
+	}
+	
+	@Test 
+	public void testMarkTaskAsDone() throws InstanceNotFoundException{
+		
+		/* Create task. */
+		String taskDescription = "Buy a new laptop";
+		Task task = taskService.createTask(taskDescription);
+		
+		/* Mark task as done. */
+		taskService.markTaskAsDone(task.getTaskId());
+		
+		/* Find task. */
+		Task taskFound = taskDao.find(task.getTaskId());
+		
+		/* Check data. */
+		assertEquals(task.getTaskId(), taskFound.getTaskId());
+		assertTrue(taskFound.getFinishDate() != null);
+	}
+	
+	@Test(expected = InstanceNotFoundException.class)
+	public void testMarkTaskAsDoneWithNonExistentTask() throws InstanceNotFoundException{
+		
+		/* Mark task as done with non existent task id. */
+		taskService.markTaskAsDone(NON_EXISTENT_TASK_ID);
 	}
 }

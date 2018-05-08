@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.jvcorp.iTarea.model.task.Task;
 import es.jvcorp.iTarea.model.task.TaskDao;
+import es.jvcorp.iTarea.model.util.exceptions.InstanceNotFoundException;
 
 @Service("taskService")
 @Transactional
@@ -26,5 +27,15 @@ public class TaskServiceImpl implements TaskService {
 		taskDao.save(task);
 		
 		return task;
+	}
+
+	public void markTaskAsDone(Long taskId) throws InstanceNotFoundException {
+		
+		/* Find task in DB. */
+		Task task = taskDao.find(taskId);
+		
+		/* Set finish date to mark task. */
+		Calendar finishDate = Calendar.getInstance();
+		task.setFinishDate(finishDate);
 	}
 }

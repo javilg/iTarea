@@ -1,9 +1,12 @@
 package es.jvcorp.iTarea.model.taskservice;
 
 import es.jvcorp.iTarea.model.task.Task;
+import es.jvcorp.iTarea.model.util.exceptions.InstanceNotFoundException;
 
 public interface TaskService {
 
 	public Task createTask(String taskDescription);
+	
+	public void markTaskAsDone(Long taskId) throws InstanceNotFoundException;
 	
 }
