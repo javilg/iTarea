@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.jvcorp.iTarea.model.task.Task;
 import es.jvcorp.iTarea.model.task.TaskDao;
+import es.jvcorp.iTarea.model.taskservice.TaskBlock;
 import es.jvcorp.iTarea.model.taskservice.TaskService;
 import es.jvcorp.iTarea.model.util.exceptions.InstanceNotFoundException;
 
@@ -87,5 +88,61 @@ public class TaskServiceTest {
 		
 		/* Delete task with non existent task id. */
 		taskService.deleteTask(NON_EXISTENT_TASK_ID);
+	}
+	
+	@Test
+	public void testFindAllTasks(){
+		
+		/* Create tasks. */
+		String taskDescription1 = "Buy a new laptop";
+		Task task1 = taskService.createTask(taskDescription1);
+		
+		String taskDescription2 = "Go to the gym on Tuesday";
+		Task task2 = taskService.createTask(taskDescription2);
+		
+		String taskDescription3 = "Book restaurant weekend.";
+		Task task3 = taskService.createTask(taskDescription3);
+		
+		/* Find two tasks. */
+		int startIndex = 0;
+		int count = 2;
+		TaskBlock taskBlock = taskService.findAllTasks(startIndex, count);
+		
+		/* Check data. */
+		assertEquals(2, taskBlock.getTasks().size());
+		assertTrue(taskBlock.getTasks().contains(task1));
+		assertTrue(taskBlock.getTasks().contains(task2));
+		assertFalse(taskBlock.getTasks().contains(task3));
+		assertEquals(true, taskBlock.isExistMoreTasks());
+		
+		/* Find more tasks. */
+		int startIndex2 = 2;
+		int count2 = 10;
+		TaskBlock taskBlock2 = taskService.findAllTasks(startIndex2, count2);
+		
+		/* Check data. */
+		assertEquals(1, taskBlock2.getTasks().size());
+		assertTrue(taskBlock2.getTasks().contains(task3));
+		assertEquals(false, taskBlock2.isExistMoreTasks());
+	}
+	
+	@Test
+	public void testGetNumberOfTasks(){
+		
+		/* Create tasks. */
+		String taskDescription1 = "Buy a new laptop";
+		taskService.createTask(taskDescription1);
+		
+		String taskDescription2 = "Go to the gym on Tuesday";
+		taskService.createTask(taskDescription2);
+		
+		String taskDescription3 = "Book restaurant weekend.";
+		taskService.createTask(taskDescription3);
+		
+		/* Get number of tasks. */
+		int numberOfTasks = taskService.getNumberOfTasks();
+		
+		/* Check data. */
+		assertEquals(3, numberOfTasks);
 	}
 }

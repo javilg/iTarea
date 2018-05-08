@@ -11,4 +11,7 @@ public interface TaskService {
 	
 	public void deleteTask(Long taskId) throws InstanceNotFoundException;
 	
+	public TaskBlock findAllTasks(int startIndex, int count);
+	
+	public int getNumberOfTasks();
 }
