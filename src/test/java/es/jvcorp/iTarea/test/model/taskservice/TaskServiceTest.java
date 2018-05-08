@@ -67,4 +67,25 @@ public class TaskServiceTest {
 		/* Mark task as done with non existent task id. */
 		taskService.markTaskAsDone(NON_EXISTENT_TASK_ID);
 	}
+	
+	@Test(expected = InstanceNotFoundException.class)
+	public void testDeleteTask() throws InstanceNotFoundException{
+		
+		/* Create task. */
+		String taskDescription = "Buy a new laptop";
+		Task task = taskService.createTask(taskDescription);
+		
+		/* Delete task. */
+		taskService.deleteTask(task.getTaskId());
+		
+		/* Check data. */
+		taskDao.find(task.getTaskId());
+	}
+	
+	@Test(expected = InstanceNotFoundException.class)
+	public void testDeleteTaskWithNonExistentTaskId() throws InstanceNotFoundException{
+		
+		/* Delete task with non existent task id. */
+		taskService.deleteTask(NON_EXISTENT_TASK_ID);
+	}
 }

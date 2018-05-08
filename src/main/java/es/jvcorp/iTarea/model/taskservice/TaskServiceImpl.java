@@ -38,4 +38,10 @@ public class TaskServiceImpl implements TaskService {
 		Calendar finishDate = Calendar.getInstance();
 		task.setFinishDate(finishDate);
 	}
+
+	public void deleteTask(Long taskId) throws InstanceNotFoundException {
+		
+		/* Delete task. */
+		taskDao.remove(taskId);
+	}
 }

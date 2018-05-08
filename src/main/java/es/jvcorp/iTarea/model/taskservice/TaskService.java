@@ -9,4 +9,6 @@ public interface TaskService {
 	
 	public void markTaskAsDone(Long taskId) throws InstanceNotFoundException;
 	
+	public void deleteTask(Long taskId) throws InstanceNotFoundException;
+	
 }
