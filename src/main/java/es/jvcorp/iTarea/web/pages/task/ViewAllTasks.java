@@ -17,9 +17,11 @@ import es.jvcorp.iTarea.model.util.exceptions.InstanceNotFoundException;
 public class ViewAllTasks {
 	
 	private TaskBlock taskBlock;
-	private int totalNumberOfTasks;
 	private int startIndex = 0;
 	private int count = 10;
+	
+	@Property
+	private int totalNumberOfTasks;
 	
 	@Property
 	private List<Integer> pagesList;

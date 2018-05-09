@@ -1,4 +1,10 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter"
 	t:type="Layout" t:title="title" showTitleInBody="false">
 
+	<div class="text-center">
+		<a id="indexLink" href="#" t:type="PageLink" t:page="task/viewalltasks">
+			<img id="indexLogo" class="iTarea-logo-index img-responsive" 
+				src="/iTarea/images/index/logo_index_circulo_flecha.png" alt="App icon"/> 
+		</a>
+	</div>
 </html>

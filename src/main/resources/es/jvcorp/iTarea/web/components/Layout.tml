@@ -7,14 +7,7 @@
     <meta charset="utf-8" />
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<link rel="shortcut icon" href="/donanuncio/favicon.ico" />
-	
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
- 
+	<link rel="shortcut icon" href="/iTarea/favicon.png" />
  </head>
 
 <body>
@@ -36,7 +29,7 @@
 	        </div>
 	          
 	        <div class="navbar-collapse collapse">
-	            <ul class="nav navbar-nav navbar-right">
+	            <ul class="nav navbar-nav">
             		<li>
            				<a href="#" t:type="PageLink" t:page="task/createtask">
 			            	<span class="glyphicon glyphicon-plus"></span>
@@ -63,8 +56,8 @@
 		</t:if>
 	    <t:body/>
 	</div>
-	
 	<div class="container">
+		<hr/>
 	    <footer>
 	        <b><p class="footer-iTarea text-center">${message:footer}</p></b>
 	    </footer>

@@ -10,6 +10,14 @@ body {
 	height: auto;
 }
 
+.iTarea-logo-index{
+	display: inline-block;
+}
+
+.iTarea-logo{
+	max-width: 100px;
+}
+
 .card-iTarea{
 	background-color: #FFFFFF;
 }
@@ -20,6 +28,10 @@ body {
 
 .label-iTarea{
 	color: #FFFFFF;
+}
+
+.totalNumberOfTasks-tag{
+	vertical-align: top;
 }
 
 .list-iTarea{

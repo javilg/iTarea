@@ -4,6 +4,9 @@
 <div class="card col-md-offset-2 col-md-8">
 	<div class="card-body">
 		<h3 class="card-title text-center">
+   			<img class="card-img-top img-responsive center-block iTarea-logo" 
+				src = "/iTarea/images/logos/logo.png"
+				alt="iTarea icon"/>
 			${message:title}
    		</h3>
    		<br/>
