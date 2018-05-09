@@ -7,10 +7,10 @@ Instalación / Configuración entorno iTarea / 08/05/2018 - Windows
    - tomcat
 
 - Descargar e instalar en la ruta por defecto el JDK
-   - Doble-click en jdk-8u5-windows-<xxx>.exe. Usar las opciones por defecto.
+   - Doble-click en jdk-8-windows-<xxx>.exe. Usar las opciones por defecto.
 	 
 - Descargar e instalar en la ruta por defecto MySQL:
-   - Doble-click en mysql-installer-community-5.6.19.0. 
+   - Doble-click en mysql-installer-community-5.6.26 
    - Elegir "Install MySQL Products" y usar las opciones por defecto.
    - Después de la instalación, se ejecutará el wizard de Configuración de 
      MySQL Server. Utilizar las opciones por defecto excepto las siguientes:
@@ -27,7 +27,7 @@ Instalación / Configuración entorno iTarea / 08/05/2018 - Windows
   variables de entorno (para cada uno pulsar en "Nueva ...", introducir el 
   nombre y el valor, y pulsar "Aceptar")
     - Nombre: JAVA_HOME
-      Valor: C:\Program Files\Java\jdk1.8.0_05
+      Valor: C:\Program Files\Java\jdk1.8.0_111
     - Nombre: MAVEN_HOME
       Valor: C:\Program Files\Java\apache-maven-3.2.2
     - Nombre: MAVEN_OPTS
@@ -143,3 +143,30 @@ mysqladmin -u root shutdown
   + Seleccionar todos los items, aceptar la licencia y todos los diálogos 
     que aparezcan durante el proceso de instalación
   + Pulsar "Finish"
+  
+
+Ejecutar la aplicación
+-------------------------
+ 
+iTarea necesita la base de datos activa para funcionar correctamente.
+
+- Ejecución con Maven/Jetty.
+
+cd iTarea
+mvn jetty:run
+
+Abrir el navegador: http://localhost:9090/iTarea
+
++ Ejecución con Tomcat.
+
+    * Copiar el fichero ".war" (e.g. iTarea/target/iTarea.war) en
+      el directorio "webapp" de Tomcat.
+
+    * Iniciar Tomcat:
+      cd <<Tomcat home>>/bin
+      startup.sh
+
+    * Abrir el navegador: http://localhost:8080/iTarea.
+
+    * Parar Tomcat:
+      shutdown.sh
