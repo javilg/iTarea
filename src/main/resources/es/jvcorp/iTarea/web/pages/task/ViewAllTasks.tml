@@ -1,0 +1,96 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter"
+	t:type="Layout" t:title="title" showTitleInBody="false">
+
+<t:if test="tasks">
+	<tbody>
+		<div class="row">
+			<div class="card col-md-offset-2 col-md-8">
+				<div class="card-body">
+					<p class="card-text">
+				   		<div class="text-center">
+						    <h3 class="card-title">${message:title}</h3>
+						</div>
+						
+						<ul class="list-group list-group-flush">
+							<t:Loop t:source="tasks" t:value="task">
+								<t:if test="isTaskDone()">
+									<li class="list-group-item list-group-item-success">
+										<span class="glyphicon glyphicon-ok"></span>
+	            						&nbsp;
+										<t:output value="task.startDate.time" format="dateFormat"/>
+										&nbsp;-&nbsp;
+										${task.taskDescription}
+										<span class="pull-right">
+					    					<t:actionlink class="btn btn-xs btn-warning" t:id="deleteTask" context="task.taskId">
+												<span class="glyphicon glyphicon-trash"></span>
+					    					</t:actionlink>
+									    </span>
+									</li>
+									<p:else>
+										<li class="list-group-item">
+											<t:output value="task.startDate.time" format="dateFormat"/>
+											&nbsp;-&nbsp;
+											${task.taskDescription}
+											<span class="pull-right">
+												<t:actionlink class="btn btn-xs btn-success" t:id="markTaskAsDone" context="task.taskId">
+													<span class="glyphicon glyphicon-ok"></span>
+						    					</t:actionlink>
+						    					&nbsp;&nbsp;
+						    					<t:actionlink class="btn btn-xs btn-warning" t:id="deleteTask2" context="task.taskId">
+													<span class="glyphicon glyphicon-trash"></span>
+						    					</t:actionlink>
+										    </span>
+										</li>
+									</p:else>
+								</t:if>
+							</t:Loop>
+						</ul>
+					</p>
+				</div>
+				<br/>
+				</div>
+			</div>
+			<div class="row">
+				<!-- "Previous" and "Next" links. -->
+			  	<div class="container text-center" id="previousAndNextLinks">
+					<ul class="pagination">
+						<t:if test="previousLinkContext">
+							<li><a href="#" t:type="PageLink" t:page="task/viewalltasks"
+								t:context="previousLinkContext"><span>&laquo; ${message:link-previous}</span></a></li>
+							<p:else>
+								<li><a id="noneHoverBtn"><span>&laquo; ${message:link-previous}</span></a></li>
+							</p:else>
+						</t:if>
+	 						
+	 						<t:Loop t:source="pagesList" t:value="pageInt">
+	 							<t:if test="pageIntLinkContext">
+								<li><a href="#" t:type="PageLink" t:page="task/viewalltasks"
+	  								t:context="pageIntLinkContext"><span>${pageInt}</span></a></li>
+	 								<p:else>
+	  								<li><a id="pageIntBtn"><span>${pageInt}</span></a></li>
+	  							</p:else>
+							</t:if>
+						</t:Loop>
+						<t:if test="nextLinkContext">
+	 							<li><a href="#" t:type="PageLink" t:page="task/viewalltasks"
+	 								t:context="nextLinkContext"><span>${message:link-next} &raquo;</span></a></li>
+	 							<p:else>
+	 								<li><a id="noneHoverBtn"><span>${message:link-next} &raquo;</span></a></li>
+	 							</p:else>
+	 						</t:if>
+					</ul>
+				</div>
+			</div>
+	</tbody>
+	<p:else>		
+		<div class="alert alert-info text-center col-md-offset-2 col-md-8" role="alert">
+			<h4>
+				<span class="glyphicon glyphicon-info-sign"></span>
+				&nbsp;
+				${message:noTasks}
+			</h4>
+		</div>
+	</p:else>
+</t:if>
+
+</html>

@@ -1,0 +1,31 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 10px;
+	background-image: url("../images/index/index.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	max-width: 100%;
+	height: auto;
+}
+
+.card-iTarea{
+	background-color: #FFFFFF;
+}
+
+.card-title{
+	color: #FFFFFF;
+}
+
+.label-iTarea{
+	color: #FFFFFF;
+}
+
+.list-iTarea{
+	vertical-align: middle;
+}
+
+.footer-iTarea{
+	color: #FFFFFF;
+}

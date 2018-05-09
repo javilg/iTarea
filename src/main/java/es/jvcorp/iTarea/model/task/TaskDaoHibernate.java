@@ -16,7 +16,8 @@ public class TaskDaoHibernate extends GenericDaoHibernate<Task, Long>
 		
 		/* Make query. */
 		Query query = getSession().createQuery(
-    			"SELECT t FROM Task t")				
+    			"SELECT t FROM Task t"
+    			+ " ORDER BY t.startDate DESC")				
     			.setFirstResult(startIndex)
 				.setMaxResults(count);;
     	

@@ -1,0 +1,13 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+	t:type="Layout" t:title="title" showTitleInBody="false">
+
+<br />
+<div class="alert alert-success text-center col-md-offset-2 col-md-8" role="alert">
+	<h4>
+		<span class="glyphicon glyphicon-saved"></span>
+		&nbsp;
+		${message:title}
+	</h4>
+</div>
+
+</html>
